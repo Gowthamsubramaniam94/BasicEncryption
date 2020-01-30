@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:id="@+id/encryption_btn"
+        android:layout_height="wrap_content"
+        android:text="Encryption"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/white"
+        android:background="@color/green"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/decryption_btn"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/encryption_btn"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:background="@color/red"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:text="Decryption"
+        android:padding="10dp" />
+
+
+</RelativeLayout>

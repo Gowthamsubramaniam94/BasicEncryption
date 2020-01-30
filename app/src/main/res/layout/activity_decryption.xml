@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/decryption_main_view"
     android:layout_height="match_parent"
     tools:context=".Decryption">
 
@@ -28,6 +29,7 @@
             android:textColor="@android:color/white"
             android:background="@color/colorPrimary"
             android:textStyle="bold"
+            android:visibility="gone"
             android:layout_below="@+id/decryption_edt"
             android:layout_centerInParent="true"
             android:text="Submit"/>
@@ -44,7 +46,5 @@
             android:visibility="gone"/>
 
     </RelativeLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

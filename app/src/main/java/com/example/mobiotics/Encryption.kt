@@ -1,13 +1,16 @@
 package com.example.mobiotics
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_encryption.*
 
 
 class Encryption : AppCompatActivity() {
@@ -29,7 +32,10 @@ class Encryption : AppCompatActivity() {
         mSubmitBtn = findViewById(R.id.encryption_btn)
         mOutputTxt = findViewById(R.id.encryption_output_txt)
 
-        mSubmitBtn?.setOnClickListener { encryption(mEncryptionEDT?.text.toString()) }
+        mSubmitBtn?.setOnClickListener {
+            encryption(mEncryptionEDT?.text.toString())
+            hideKeyboard(encryption_main_view)}
+
         mEncryptionEDT?.addTextChangedListener(object :TextWatcher{
             override fun afterTextChanged(s: Editable?) {
                 }
@@ -39,13 +45,20 @@ class Encryption : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if(s.toString().trim().equals("")) {
-                    mSubmitBtn?.visibility == View.GONE
+                    mSubmitBtn?.visibility = View.GONE
                 }
                 else {
                     mSubmitBtn?.visibility = View.VISIBLE
                 }
             }
         })
+    }
+
+    private fun hideKeyboard(view: View) {
+        view.apply {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 
 
